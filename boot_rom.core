@@ -1,0 +1,32 @@
+CAPI=2:
+
+name: "bci:sw:boot_rom:1.0"
+description: "boot_rom"
+
+filesets:
+  files_boot_rom:
+    depend:
+      - bci:sw:base:1.0
+      - bci:sw:dif:1.0
+      - bci:sw:top_athos_sw:1.0
+    files:
+      - irq_vector.S : {file_type: swAsmSource}
+      - rom_crt.S    : {file_type: swAsmSource}
+      - bootstrap.h  : {is_include_file: true}
+      - chip_info.h  : {is_include_file: true}
+      - bootstrap.c
+      - boot_rom.c
+      - rom_link.ld : {file_type: swLdSource}
+    file_type: swCSource
+
+  files_device:
+    files:
+      - info_sections.ld
+    file_type: swLdSource
+
+
+targets:
+  default: 
+    filesets:
+      - files_boot_rom
+      - files_device
