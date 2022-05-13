@@ -6,7 +6,7 @@
  * Boot ROM runtime initialization code.
  */
 
-  #include "top_athos_sw/sw/autogen/top_athos_memory.h"
+  #include "top/sw/autogen/top_athos_memory.h"
 
   // NOTE: The "ax" flag below is necessary to ensure that this section
   // is allocated executable space in ROM by the linker.
